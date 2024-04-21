@@ -20,7 +20,7 @@
       let map;
       let marker; 
       const trackLocation = ({ onSuccess, onError = () => { } }) => {
-        if('geolocation' in navigator){
+        if(navigator.geolocation){
           return navigator.geolocation.watchPosition(onSuccess, onError, {
             enableHighAccuracy: true,
             timeout: 10000,
