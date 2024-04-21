@@ -12,6 +12,7 @@
         padding: 0;
         zoom: 20;
       }
+
     </style>
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
@@ -41,18 +42,18 @@
       // }
       
       async function initMap() {
-        const { Map } = await google.maps.importLibrary("maps");
-        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-        const position = { lat: -34.397, lng: 150.644 };
-        map = new Map(document.getElementById("map"), {
-          center: position,
-          zoom: 20,
-        });
-        const marker = new google.maps.Marker({ map, position: position });
+        //const { Map } = await google.maps.importLibrary("maps");
+        //const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+        //const position = { lat: -34.397, lng: 150.644 };
+        //map = new Map(document.getElementById("map"), {
+        //  center: position,
+        //  zoom: 20,
+        //});
+        //const marker = new google.maps.Marker({ map, position: position });
         trackLocation({
           onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
-            marker.setPosition({ lat, lng });
-            map.panTo({ lat, lng });
+            myHeader1.innerText = lat;
+            myHeader2.innerText = lng;
     },
     onError: err => {
       alert(`Error: ${err.message}`);
@@ -64,10 +65,13 @@
           // position: position,
         // });
       }
-      initMap();
+      //initMap();
     </script>
   </head>
   <body>
-    <div id="map"></div>
+    <header>
+    <h1 id="myHeader1">0</h1>
+    <h2 id="myHeader2">0<h2>
+    </header>
   </body>
 </html>
