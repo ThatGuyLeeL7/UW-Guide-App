@@ -131,3 +131,28 @@ body {
 main {
 	margin: 10px 20px;
 }
+
+  <!-------------------------------------------------------------------------------------------------------------------------->
+
+
+ <!----  Styling for Anouncements ------->
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+input,
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+	display: block;
+}
