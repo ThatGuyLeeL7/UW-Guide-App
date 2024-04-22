@@ -57,6 +57,7 @@
     let length = -1;
 
       navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      alert(result.state)
       if ((result.state === "granted") || (result.state === "prompt")) {
         const trackLocation = ({ onSuccess, onError = () => { } }) => {
           return navigator.geolocation.watchPosition(onSuccess, onError, {
