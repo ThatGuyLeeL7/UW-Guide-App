@@ -51,55 +51,49 @@
   let map;
   let marker; 
   const trackLocation = ({ onSuccess, onError = () => { } }) => {
-    if(navigator.geolocation){
-      navigator.permissions.query({ name: "geolocation" }).then((result) => {
-      if (result.state === "granted") {
-        return navigator.geolocation.watchPosition(onSuccess, onError, {
-          enableHighAccuracy: true,
-          timeout: 10000,
-          maximumAge: 0
-        });
-      } else if (result.state === "prompt") {
-        return navigator.geolocation.watchPosition(onSuccess, onError, {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0
-        });
-      }
-      else{
-        alert("access has been denied");
-      }
- 
+    return navigator.geolocation.watchPosition(onSuccess, onError, {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
     });
-    }
-    else{
-      alert("geolocation not supported");
-    }
+ 
   }
   
   function initMap() {
     let height = -1;
     let length = -1;
-    trackLocation({
-      onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
-      {
-        //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
-        if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
-          height = 47.24685 - lat;
-          length = -122.43712 - lng;
+    if(navigator.geolocation){
+      navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if ((result.state === "granted") || (result.state === "prompt")) {
+        trackLocation({
+          onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
+            {
+              //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
+              if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
+                height = 47.24685 - lat;
+                length = -122.43712 - lng;
+              }
+              if(lat >= 0 && lng >= 0){
+                rectangle1.style.top = height + 'px';
+                rectangle1.style.left = length + 'px';
+              }
+              myHeader1.innerText = lat;
+              myHeader2.innerText = lng;
+            },
+          onError: err => 
+            {
+              alert(`Error: ${err.message}`);
+            }
+          });
+      } 
+        else{
+          alert("access has been denied");
         }
-        if(lat >= 0 && lng >= 0){
-          rectangle1.style.top = height + 'px';
-          rectangle1.style.left = length + 'px';
-        }
-        myHeader1.innerText = lat;
-        myHeader2.innerText = lng;
-      },
-      onError: err => 
-      {
-        alert(`Error: ${err.message}`);
-      }
-    });
+      });
+    }
+    else{
+      alert("geolocation not supported");
+    }
 
     
   }
