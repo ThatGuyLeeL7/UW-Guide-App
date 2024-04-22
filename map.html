@@ -42,7 +42,7 @@
       <h1 id="myHeader1">0</h1>
       <h2 id="myHeader2">0<h2>
     </header>
-    <button onclick="initMap()">Load Map</button> 
+    <button onclick="initialize()">Load Map</button> 
     <script async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
     </script>
@@ -50,21 +50,21 @@
   //document.addEventListener('DOMContentLoaded', (event) => {
   let map;
   let marker; 
-  const trackLocation = ({ onSuccess, onError = () => { } }) => {
-    return navigator.geolocation.watchPosition(onSuccess, onError, {
-      enableHighAccuracy: true,
-      timeout: 10000,
-      maximumAge: 0
-    });
  
-  }
   
-  function initMap() {
+  function initialize() {
     let height = -1;
     let length = -1;
-    if(navigator.geolocation){
+
       navigator.permissions.query({ name: "geolocation" }).then((result) => {
       if ((result.state === "granted") || (result.state === "prompt")) {
+        const trackLocation = ({ onSuccess, onError = () => { } }) => {
+          return navigator.geolocation.watchPosition(onSuccess, onError, {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+          });
+        }
         trackLocation({
           onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
             {
@@ -90,10 +90,10 @@
           alert("access has been denied");
         }
       });
-    }
-    else{
-      alert("geolocation not supported");
-    }
+    
+    
+    
+    
 
     
   }
