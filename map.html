@@ -6,6 +6,22 @@
       #map {
         height: 100%;
       }
+      #rectangle{
+        position: absolute;
+        width:379px;
+        height:220px;
+        background:rgb(77, 77, 79);
+        top: 0px;  
+        left: 0px; 
+      }
+      #rectangle1{
+        width:10px;
+        height:10px;
+        background:rgb(255, 6, 6);
+        position: absolute;
+        top: 0px;  
+        left: 0px; 
+      }
     </style>
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
@@ -25,43 +41,36 @@
           alert("geolocation not supported");
         }
       }
-      // function init(){
-        // trackLocation({
-          // onSuccess: position => 
-            // alert(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
-        // onError: err =>
-          // alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
-        // });
-      // }
       
       async function initMap() {
-        //const { Map } = await google.maps.importLibrary("maps");
-        //const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-        //const position = { lat: -34.397, lng: 150.644 };
-        //map = new Map(document.getElementById("map"), {
-        //  center: position,
-        //  zoom: 20,
-        //});
-        //const marker = new google.maps.Marker({ map, position: position });
+        let height = -1;
+        let length = -1;
         trackLocation({
-          onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
-            myHeader1.innerText = lat;
-            myHeader2.innerText = lng;
-    },
-    onError: err => {
-      alert(`Error: ${err.message}`);
-    }
-});
-        // marker = new AdvancedMarkerElement
-        // ({
-          // map: map,
-          // position: position,
-        // });
+          onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
+          {
+            //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
+            if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
+              height = 47.24685 - lat;
+              length = -122.43712 - lng;
+            }
+            if(lat >= 0 && lng >= 0){
+              myHeader1.innerText = height;
+              myHeader2.innerText = width;
+              rectangle1.style.top = height + 'px';
+              rectangle1.style.left = length + 'px';
+            }
+          },
+          onError: err => 
+          {
+            alert(`Error: ${err.message}`);
+          }
+        });
       }
-      //initMap();
     </script>
   </head>
   <body>
+    <div id="rectangle"></div>
+    <div id="rectangle1"></div>
     <header>
     <h1 id="myHeader1">0</h1>
     <h2 id="myHeader2">0<h2>
