@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+
+    <header>
+        <!--Logo and title goes here-->
+        
+        <h1>
+            <img src="images/W.svg" alt="University of Washington Logo"><br>TACOMA GUIDE
+        </h1>
+        
+        <h2>Announcements</h2>
+    </header>
+
+    <!-------------------------------------------------------------------------------------------------------------------------->
+
+    <main>
+    
+    <!-- Form to create announcements -->
+    <form id="announcementForm">
+        <label for="announcementTitle">Title:</label>
+        <input type="text" id="announcementTitle" required>
+        <label for="announcementContent">Content:</label>
+        <textarea id="announcementContent" required></textarea>
+        <button type="submit">Create Announcement</button>
+    </form>
+    
+    <!-- Section to display announcements -->
+    <section id="announcements">
+        <!-- Announcements will be displayed here -->
+    </section>
+
+    <script src="script.js"></script>
+
+
+    </main>
+
+
+</body>
+</html>
