@@ -57,8 +57,7 @@
     let length = -1;
 
       navigator.permissions.query({ name: "geolocation" }).then((result) => {
-      alert(result.state)
-      if ((result.state === "granted") || (result.state === "prompt")) {
+      if ((result.state == "granted") || (result.state == "prompt")) {
         const trackLocation = ({ onSuccess, onError = () => { } }) => {
           return navigator.geolocation.watchPosition(onSuccess, onError, {
             enableHighAccuracy: true,
@@ -74,12 +73,14 @@
                 height = 47.24685 - lat;
                 length = -122.43712 - lng;
               }
-              if(lat >= 0 && lng >= 0){
+              if(height >= 0 && length >= 0){
+                height = Math.floor(height * 100000);
+                length = Math.floor(length * 100000);
                 rectangle1.style.top = height + 'px';
                 rectangle1.style.left = length + 'px';
               }
-              myHeader1.innerText = lat;
-              myHeader2.innerText = lng;
+              myHeader1.innerText = height;
+              myHeader2.innerText = length;
             },
           onError: err => 
             {
