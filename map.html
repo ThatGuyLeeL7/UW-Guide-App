@@ -28,18 +28,24 @@
       #myHeader2{
         position: relative;
       }
+      button {
+        position: absolute;
+        top: 300px;  
+        left: 0px; 
+      }
     </style>
   </head>
   <body>
     <div id="rectangle"></div>
     <div id="rectangle1"></div>
     <header>
-    <h1 id="myHeader1">0</h1>
-    <h2 id="myHeader2">0<h2>
+      <h1 id="myHeader1">0</h1>
+      <h2 id="myHeader2">0<h2>
     </header>
+    <button onclick="initMap()">Load Map</button> 
     <script async
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
-</script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
+    </script>
 <script>
   //document.addEventListener('DOMContentLoaded', (event) => {
   let map;
