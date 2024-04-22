@@ -46,11 +46,22 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHR
   let marker; 
   const trackLocation = ({ onSuccess, onError = () => { } }) => {
     if(navigator.geolocation){
-      return navigator.geolocation.watchPosition(onSuccess, onError, {
+      navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if (result.state === "granted") {
+        return navigator.geolocation.watchPosition(onSuccess, onError, {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        });
+      } else if (result.state === "prompt") {
+        return navigator.geolocation.watchPosition(onSuccess, onError, {
         enableHighAccuracy: true,
         timeout: 10000,
         maximumAge: 0
-      });
+        });
+      }
+ 
+    });
     }
     else{
       alert("geolocation not supported");
