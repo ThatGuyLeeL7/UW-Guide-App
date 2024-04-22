@@ -110,7 +110,17 @@
             break;
     }
   }
+  //median_geolocation_ready();
   initialize();
+
+  function gonative_geolocation_ready() {
+            navigator.geolocation.getCurrentPosition(locationSuccess, locationError, locationOptions);
+        }
+        // Call immediately if not in iOS app
+        if (!(navigator.userAgent.includes('GoNativeIOS') || navigator.userAgent.includes('MedianIOS'))) {
+            gonative_geolocation_ready();
+        }
+        
 //});
 </script>
   </body>
