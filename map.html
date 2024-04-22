@@ -52,7 +52,7 @@
   function initialize() {
     let height = -1;
     let length = -1;
-
+    median.android.geoLocation.promptLocationServices();
       navigator.permissions.query({ name: "geolocation" }).then((result) => {
       if ((result.state == "granted") || (result.state == "prompt")) {
         const trackLocation = ({ onSuccess, onError = () => { } }) => {
