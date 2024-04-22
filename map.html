@@ -29,50 +29,6 @@
         position: relative;
       }
     </style>
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
-    </script>
-    <script>
-      let map;
-      let marker; 
-      const trackLocation = ({ onSuccess, onError = () => { } }) => {
-        if(navigator.geolocation){
-          return navigator.geolocation.watchPosition(onSuccess, onError, {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
-          });
-        }
-        else{
-          alert("geolocation not supported");
-        }
-      }
-      
-      async function initMap() {
-        let height = -1;
-        let length = -1;
-        trackLocation({
-          onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
-          {
-            //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
-            if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
-              height = 47.24685 - lat;
-              length = -122.43712 - lng;
-            }
-            if(lat >= 0 && lng >= 0){
-              rectangle1.style.top = height + 'px';
-              rectangle1.style.left = length + 'px';
-            }
-            myHeader1.innerText = lat;
-            myHeader2.innerText = lng;
-          },
-          onError: err => 
-          {
-            alert(`Error: ${err.message}`);
-          }
-        });
-      }
-    </script>
   </head>
   <body>
     <div id="rectangle"></div>
@@ -81,5 +37,51 @@
     <h1 id="myHeader1">0</h1>
     <h2 id="myHeader2">0<h2>
     </header>
+    <script async
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
+</script>
+<script>
+  //document.addEventListener('DOMContentLoaded', (event) => {
+  let map;
+  let marker; 
+  const trackLocation = ({ onSuccess, onError = () => { } }) => {
+    if(navigator.geolocation){
+      return navigator.geolocation.watchPosition(onSuccess, onError, {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      });
+    }
+    else{
+      alert("geolocation not supported");
+    }
+  }
+  
+  async function initMap() {
+    let height = -1;
+    let length = -1;
+    trackLocation({
+      onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
+      {
+        //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
+        if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
+          height = 47.24685 - lat;
+          length = -122.43712 - lng;
+        }
+        if(lat >= 0 && lng >= 0){
+          rectangle1.style.top = height + 'px';
+          rectangle1.style.left = length + 'px';
+        }
+        myHeader1.innerText = lat;
+        myHeader2.innerText = lng;
+      },
+      onError: err => 
+      {
+        alert(`Error: ${err.message}`);
+      }
+    });
+  }
+//});
+</script>
   </body>
 </html>
