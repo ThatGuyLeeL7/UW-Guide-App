@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UWT Map</title>
+    <link rel="manifest" href="manifest.json" />
     <style>
       #map {
         height: 100%;
@@ -35,9 +35,9 @@
     <div id="rectangle1"></div>
     <header>
       <h1 id="myHeader1">0</h1>
-      <h2 id="myHeader2">0</h2>
+      <h2 id="myHeader2">0<h2>
     </header>
-    <script async
+    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
     </script>
 <script>
@@ -52,7 +52,7 @@
   function initialize() {
     let height = -1;
     let length = -1;
-    median.android.geoLocation.promptLocationServices();
+
       navigator.permissions.query({ name: "geolocation" }).then((result) => {
       if ((result.state == "granted") || (result.state == "prompt")) {
         const trackLocation = ({ onSuccess, onError = () => { } }) => {
@@ -76,8 +76,8 @@
                 rectangle1.style.top = height + 'px';
                 rectangle1.style.left = length + 'px';
               }
-              myHeader1.innerText = lat;
-              myHeader2.innerText = lng;
+              myHeader1.innerText = height;
+              myHeader2.innerText = length;
             },
           onError: err => 
             {
