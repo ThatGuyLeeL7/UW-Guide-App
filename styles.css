@@ -107,7 +107,7 @@ a {
 	background-color: hsl(200, 0%, 60%);
 	display: block;
 	text-align: center;
-	width: 100px;
+	width: 50px;
 	transition: transform 0.1s, background-color 0.3s;
 
 }
