@@ -47,12 +47,12 @@
   document.addEventListener('DOMContentLoaded', function() {
       function initMap() {
         // Map initialization code can go here if needed
+        initialize();
       }
   
   function initialize() {
     let height = -1;
     let length = -1;
-    Median.android.geoLocation.promptAndroidLocationServices();
       navigator.permissions.query({ name: "geolocation" }).then((result) => {
       if ((result.state == "granted") || (result.state == "prompt")) {
         const trackLocation = ({ onSuccess, onError = () => { } }) => {
@@ -66,18 +66,18 @@
           onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
             {
               //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
-              if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
-                height = 47.24685 - lat;
-                length = -122.43712 - lng;
-              }
-              if(height >= 0 && length >= 0){
-                height = Math.floor(height * 100000);
-                length = Math.floor(length * 100000);
-                rectangle1.style.top = height + 'px';
-                rectangle1.style.left = length + 'px';
-              }
-              myHeader1.innerText = height;
-              myHeader2.innerText = length;
+              // if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
+                // height = 47.24685 - lat;
+                // length = -122.43712 - lng;
+              // }
+              // if(height >= 0 && length >= 0){
+                // height = Math.floor(height * 100000);
+                // length = Math.floor(length * 100000);
+                // rectangle1.style.top = height + 'px';
+                // rectangle1.style.left = length + 'px';
+              // }
+              myHeader1.innerText = lat;
+              myHeader2.innerText = lng;
             },
           onError: err => 
             {
