@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Weekly Schedule</title>
+    <title>Academic Calendar</title>
     <style>
         body, html {
             font-family: Arial, sans-serif;
@@ -13,145 +13,335 @@
         }
         .container {
             width: 95%;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 20px auto;
             background-color: white;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
-        .uw-logo {
-            width: 100px; /* Adjust size accordingly */
-            display: block;
-            margin: 0 auto 20px;
-        }
-        h1 {
-            color: #333;
+        .header {
             text-align: center;
+            padding: 10px 0;
         }
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1px;
-            background-color: #ddd;
+        .header h1 {
+            font-size: 24px;
+            color: #4b2e83;
+            margin: 0;
         }
-        .day-header {
-            background-color: #0074D9;
+        .section-title {
+            background-color: #4b2e83;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        .subsection-title {
+            background-color: #af913c;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-weight: bold;
+        }
+        .table-container {
+            border: 1px solid #af913c;
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .term-title {
+            background-color: #4b2e83;
             color: white;
             padding: 10px;
             text-align: center;
+            font-weight: bold;
         }
-        .column {
-            background-color: #fff;
-            min-height: 300px;
-            border: 1px solid #ccc;
-            padding: 5px;
-        }
-        .event {
-            background-color: #0074D9;
-            color: white;
-            padding: 5px 10px;
-            margin: 5px;
-            position: relative;
-            font-size: 14px;
-        }
-        .delete-btn {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            cursor: pointer;
-            background-color: #ff4136;
-            border: none;
-            color: white;
-            padding: 2px 4px;
-            font-size: 10px;
-        }
-        .event-form {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .event-form input, .event-form select, .event-form button {
-            padding: 10px;
-            margin-right: 5px;
+        .calendar-summary, .holidays {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="images/uw_logo.png" alt="UW Logo" class="uw-logo">
-        <h1>Weekly Schedule</h1>
-        <div class="calendar">
-            <div class="day-header">Monday</div>
-            <div class="day-header">Tuesday</div>
-            <div class="day-header">Wednesday</div>
-            <div class="day-header">Thursday</div>
-            <div class="day-header">Friday</div>
-            <div class="day-header">Saturday</div>
-            <div class="day-header">Sunday</div>
-            <div class="column" id="mon"></div>
-            <div class="column" id="tue"></div>
-            <div class="column" id="wed"></div>
-            <div class="column" id="thu"></div>
-            <div class="column" id="fri"></div>
-            <div class="column" id="sat"></div>
-            <div class="column" id="sun"></div>
+        <div class="header">
+            <h1>Academic Calendar</h1>
         </div>
-        <div class="event-form">
-            <input type="text" id="event-title" placeholder="Event Title">
-            <input type="time" id="start-time" placeholder="Start Time">
-            <input type="time" id="end-time" placeholder="End Time">
-            <select id="day-of-week">
-                <option value="mon">Monday</option>
-                <option value="tue">Tuesday</option>
-                <option value="wed">Wednesday</option>
-                <option value="thu">Thursday</option>
-                <option value="fri">Friday</option>
-                <option value="sat">Saturday</option>
-                <option value="sun">Sunday</option>
-            </select>
-            <button onclick="addEvent()">Add Event</button>
+
+        <div class="section">
+            <div class="term-title">Autumn</div>
+            <div class="calendar-summary">
+                <div class="subsection-title">Academic Calendar Summary</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Instruction Begins</td>
+                                <td>Sep 25, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Last Day of Instruction</td>
+                                <td>Dec 6, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Final Examination Week</td>
+                                <td>Dec 7 – 13, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Grades Available on MyUW</td>
+                                <td>Dec 18, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Quarter Break</td>
+                                <td>Dec 14, 2024 – Jan 5, 2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="holidays">
+                <div class="subsection-title">Holidays</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Labor Day</td>
+                                <td>Sep 2, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Veterans Day</td>
+                                <td>Nov 11, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Native American Heritage Day</td>
+                                <td>Nov 29, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Christmas Day</td>
+                                <td>Dec 25, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="term-title">Winter</div>
+            <div class="calendar-summary">
+                <div class="subsection-title">Academic Calendar Summary</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Instruction Begins</td>
+                                <td>Jan 6, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Last Day of Instruction</td>
+                                <td>Mar 14, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Final Examination Week</td>
+                                <td>Mar 15 – 21, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Grades Available on MyUW</td>
+                                <td>Mar 26, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Quarter Break</td>
+                                <td>Mar 22 – 30, 2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="holidays">
+                <div class="subsection-title">Holidays</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Labor Day</td>
+                                <td>Sep 2, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Veterans Day</td>
+                                <td>Nov 11, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Native American Heritage Day</td>
+                                <td>Nov 29, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Christmas Day</td>
+                                <td>Dec 25, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="term-title">Spring</div>
+            <div class="calendar-summary">
+                <div class="subsection-title">Academic Calendar Summary</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Instruction Begins</td>
+                                <td>Mar 25, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Last Day of Instruction</td>
+                                <td>May 31, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Final Examination Week</td>
+                                <td>Jun 1-7, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Grades Available on MyUW</td>
+                                <td>Jun 12, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Quarter Break</td>
+                                <td>Jun 9-16, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="holidays">
+                <div class="subsection-title">Holidays</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Labor Day</td>
+                                <td>Sep 2, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Veterans Day</td>
+                                <td>Nov 11, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Native American Heritage Day</td>
+                                <td>Nov 29, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Christmas Day</td>
+                                <td>Dec 25, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="term-title">Summer</div>
+            <div class="calendar-summary">
+                <div class="subsection-title">Academic Calendar Summary</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Event</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">Full Term</td>
+                                <td>Instruction Begins</td>
+                                <td>Jun 17, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Last Day of Instruction</td>
+                                <td>Aug 16, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Final Examination Week</td>
+                                <td>Typically the last day of class</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">A-Term</td>
+                                <td>Instruction Begins</td>
+                                <td>Jun 17, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Last Day of Instruction</td>
+                                <td>Jul 17, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Final Examination Week</td>
+                                <td>Typically the last day of class</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">B-Term</td>
+                                <td>Instruction Begins</td>
+                                <td>Jul 18, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Last Day of Instruction</td>
+                                <td>Aug 16, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Final Examination Week</td>
+                                <td>Typically the last day of class</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Grades Available on MyUW</td>
+                                <td>Aug 21, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="holidays">
+                <div class="subsection-title">Holidays</div>
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Labor Day</td>
+                                <td>Sep 2, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Veterans Day</td>
+                                <td>Nov 11, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Native American Heritage Day</td>
+                                <td>Nov 29, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Christmas Day</td>
+                                <td>Dec 25, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initial setup or fetching stored events could be handled here
-        });
-
-        function addEvent() {
-            const title = document.getElementById('event-title').value;
-            const startTime = document.getElementById('start-time').value;
-            const endTime = document.getElementById('end-time').value;
-            const dayOfWeek = document.getElementById('day-of-week').value;
-
-            if (!title || !startTime || !endTime) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            const formattedStartTime = convertTo12Hour(startTime);
-            const formattedEndTime = convertTo12Hour(endTime);
-            const column = document.getElementById(dayOfWeek);
-            const eventDiv = document.createElement('div');
-            eventDiv.className = 'event';
-            eventDiv.textContent = `${title} (${formattedStartTime} - ${formattedEndTime})`;
-
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'X';
-            deleteBtn.className = 'delete-btn';
-            deleteBtn.onclick = function() {
-                column.removeChild(eventDiv);
-            };
-
-            eventDiv.appendChild(deleteBtn);
-            column.appendChild(eventDiv);
-        }
-
-        function convertTo12Hour(timeStr) {
-            const [hour, minute] = timeStr.split(':').map(num => parseInt(num, 10));
-            const suffix = hour >= 12 ? 'PM' : 'AM';
-            const adjustedHour = hour % 12 || 12; // Convert "0" hour to "12"
-            return `${adjustedHour}:${minute.toString().padStart(2, '0')} ${suffix}`;
-        }
-    </script>
 </body>
 </html>
