@@ -65,7 +65,50 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	padding: 5px;
+	font-family: Encode Sans Compressed;
+	font-size: 25px;
+	background-color: #4b2e83;
+	color: white;
+	text-align: center;
+}
 
+h4 {
+	padding: 5px;
+	font-family: Encode Sans Compressed;
+	font-size: 25px;
+	background-color: #4b2e83;
+	color: white;
+	text-align: center;
+}
+
+h5 {
+	padding: 5px;
+	font-family: Encode Sans Compressed;
+	font-size: 25px;
+	color: #4b2e83;
+	text-align: center;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center; /* Center horizontally */
+}
+
+button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Encode Sans Compressed;
+	font-size: 25px;
+	background-color: #4b2e83;
+	color: white;
+	text-align: center;
+	display: inline;
+	margin-left: 10px;
+	margin-right: 10px;
+}
 
 #author-name-and-date {
 	font-family: "Arial";
@@ -74,9 +117,9 @@ h2 {
 }
 
 p {
-	font-family: "Times New Roman";
+	font-family: Encode Sans Regular;
 	font-size: 16px;
-	color: #808080;
+	color: black;
 }
 
 ol {
@@ -132,27 +175,4 @@ body {
 
 main {
 	margin: 10px 20px;
-}
-
-/* Styling for Anouncements */
-
-form {
-	margin-bottom: 20px;
-}
-
-label {
-	display: block;
-	margin-bottom: 5px;
-}
-
-
-input,
-textarea {
-	width: 90%;
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-button {
-	display: block;
 }
