@@ -135,40 +135,6 @@ a {
 	padding: 10px;
 }
 
-.navbar ul {
-	list-style-type: none;
-	background-color: whitesmoke;
-	padding: 0px;
-	margin: 0px;
-	text-align: center;
-	overflow: hidden;
-	bottom: 0;
-}
-
-.navbar a {
-	text-decoration: none;
-	background-color: hsl(200, 0%, 60%);
-	display: block;
-	text-align: center;
-	width: 50px;
-	transition: transform 0.1s, background-color 0.3s;
-
-}
-
-.navbar a:hover {
-	background-color: #4b2e83;
-	color: white;
-}
-
-.navbar .active {
-	background-color: #85754d;
-	color: white;
-}
-
-.navbar li {
-	display: inline-block;
-}
-
 body {
 	margin: 0px;
 }
