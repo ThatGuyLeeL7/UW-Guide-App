@@ -25,6 +25,15 @@ img {
 	height: 50px;
 }
 
+.backbtn img {
+	height: auto;
+	width: 30px;
+}
+
+img {
+	height: 50px;
+}
+
 .food {
 	width: 90%;
 	height: auto;
