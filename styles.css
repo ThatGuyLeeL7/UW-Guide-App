@@ -21,8 +21,15 @@
 }
 
 
-img {
-	height: 50px;
+.backbtn {
+	background-color:lightgrey;
+	color: black;
+	font-family: Encode Sans Compressed;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border: none;
 }
 
 .backbtn img {
