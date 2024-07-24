@@ -1,122 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="manifest" href="manifest.json" />
-    <style>
-      #map {
-        height: 100%;
-      }
-      #rectangle{
-        position: absolute;
-        width:379px;
-        height:220px;
-        background:rgb(77, 77, 79);
-        top: 0px;  
-        left: 0px; 
-      }
-      #rectangle1{
-        width:10px;
-        height:10px;
-        background:rgb(255, 6, 6);
-        position: absolute;
-        top: 0px;  
-        left: 0px; 
-      }
-      #myHeader1{
-        position: relative;
-      }
-      #myHeader2{
-        position: relative;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="rectangle"></div>
-    <div id="rectangle1"></div>
-    <header>
-      <h1 id="myHeader1">0</h1>
-      <h2 id="myHeader2">0<h2>
-    </header>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGzvTo0fh_kx4sNwwukJpIPHRwaIA8rno&loading=async&callback=initMap">
-    </script>
-<script>
-  //document.addEventListener('DOMContentLoaded', (event) => {
-  let map;
-  let marker; 
-  document.addEventListener('DOMContentLoaded', function() {
-      function initMap() {
-        // Map initialization code can go here if needed
-        initialize();
-      }
-  
-  function initialize() {
-    let height = -1;
-    let length = -1;
-      navigator.permissions.query({ name: "geolocation" }).then((result) => {
-      if ((result.state == "granted") || (result.state == "prompt")) {
-        const trackLocation = ({ onSuccess, onError = () => { } }) => {
-          return navigator.geolocation.watchPosition(onSuccess, onError, {
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0
-          });
-        }
-        trackLocation({
-          onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => 
-            {
-              //UWT coords: 47.24685, 47.24465 (height), -122.44091, -122.43712 (length) 
-              // if((lat >= 47.24465 && lat <= 47.24685) && (lng >= -122.44091 && lng <= -122.43712)){
-                // height = 47.24685 - lat;
-                // length = -122.43712 - lng;
-              // }
-              // if(height >= 0 && length >= 0){
-                // height = Math.floor(height * 100000);
-                // length = Math.floor(length * 100000);
-                // rectangle1.style.top = height + 'px';
-                // rectangle1.style.left = length + 'px';
-              // }
-              myHeader1.innerText = lat;
-              myHeader2.innerText = lng;
-            },
-          onError: err => 
-            {
-              alert(`Error: ${err.message}`);
-            }
-          });
-      } 
-        else{
-          alert("access has been denied");
-        }
-      });
-    
-    
-    
-    
-
-    
-  }
-
-  function handleLocationError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            console.error("User denied the request for Geolocation.");
-            break;
-        case error.POSITION_UNAVAILABLE:
-            console.error("Location information is unavailable.");
-            break;
-        case error.TIMEOUT:
-            console.error("The request to get user location timed out.");
-            break;
-        default:
-            console.error("An unknown error occurred.");
-            break;
-    }
-  }
-  //median_geolocation_ready();
-  initialize();
-
-});
-</script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Page</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <h1>UW Tacoma Campus Map</h1>
+    <img src="UWT_Map.png" alt="Map" class="uwtMAP">
+</body>
 </html>
