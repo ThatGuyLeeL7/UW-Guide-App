@@ -49,6 +49,7 @@ img {
   margin-right: auto;
 }
 
+
 .btn {
 	background-color: #4b2e83;
 	color: white;
@@ -113,6 +114,54 @@ h5 {
 	font-size: 25px;
 	color: #4b2e83;
 	text-align: center;
+}
+
+
+a:link {
+	background-color: #4b2e83;
+	color: white;
+	font-family: Encode Sans Compressed;
+	font-size: 30px;
+	margin: 10px 0px;
+	transition: transform 0.1s, background-color 0.3s;
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	padding: 60px;
+}
+
+a:visited {
+	background-color: #4b2e83;
+	color: white;
+	font-family: Encode Sans Compressed;
+	font-size: 30px;
+	margin: 10px 0px;
+	transition: transform 0.1s, background-color 0.3s;
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	padding: 60px;
+}
+
+a:hover {
+	background-color: #b7a57a;
+	color: white;
+	font-family: Encode Sans Compressed;
+	font-size: 30px;
+	margin: 10px 0px;
+	transition: transform 0.1s, background-color 0.3s;
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	padding: 60px;
+}
+
+a:active {
+	color: white;
+	font-family: Encode Sans Compressed;
+	font-size: 30px;
+	margin: 10px 0px;
+	transition: transform 0.1s, background-color 0.3s;
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	padding: 60px;
 }
 
 .button-container {
