@@ -72,6 +72,10 @@ img {
 	transform: scale(0.98);
 }
 
+.resources {
+	height: 250px;
+}
+
 h1 {
 	padding: 20px;
 	font-family: Encode Sans;
@@ -209,3 +213,25 @@ main {
 }
 
 
+#resources {
+    /* Add your styles here */
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#resources a {
+    text-decoration: none;
+    /* Additional styling for the links */
+}
+
+#resources img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+#resources img:hover {
+    transform: scale(1.1); /* Zooms in on hover */
+}
