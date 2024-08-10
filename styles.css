@@ -214,7 +214,6 @@ main {
 
 
 #resources {
-    /* Add your styles here */
     display: flex;
     justify-content: space-around;
     padding: 20px;
@@ -234,4 +233,31 @@ main {
 
 #resources img:hover {
     transform: scale(1.1); /* Zooms in on hover */
+}
+
+#home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 10px; /* Space between the buttons */
+    justify-content: center; /* Center the grid inside the container */
+    padding: 10px;
+    width: 90%; /* Make the container take up 90% of the screen width */
+    max-width: 600px; /* Set a maximum width to prevent buttons from becoming too large */
+    margin: 0 auto; /* Center the container itself on the page */
+}
+
+#home button {
+	font-size: 120%; /* Set a fixed font size */
+    text-decoration: none;
+    width: 100%; /* Make buttons take full width of the grid cell */
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#home img {
+    width: 50%;
+    height: auto;
+    transition: transform 0.2s;
 }
