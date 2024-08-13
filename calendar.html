@@ -17,7 +17,8 @@
             src: url('fonts/EncodeSansNormal-400-Regular.ttf') format('truetype');
         }
 
-        body, html {
+        body,
+        html {
             font-family: 'EncodeSansNormal-400-Regular', Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -25,26 +26,12 @@
         }
 
         .container {
-            width: 95%;
             max-width: 800px;
             margin: 20px auto;
             background-color: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-        }
-
-        .header {
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-        }
-
-        .header h1 {
-            font-size: 24px;
-            color: #4b2e83;
-            margin: 0;
-            font-family: 'EncodeSansCompressed-900-Black', Arial, sans-serif;
         }
 
         .term-title {
@@ -56,7 +43,8 @@
             font-family: 'EncodeSansCompressed-900-Black', Arial, sans-serif;
         }
 
-        .calendar-summary, .holidays {
+        .calendar-summary,
+        .holidays {
             margin-bottom: 20px;
         }
 
@@ -81,7 +69,8 @@
             border-collapse: collapse;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px;
             text-align: left;
             font-family: 'EncodeSansNormal-400-Regular', Arial, sans-serif;
@@ -98,33 +87,19 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-
-        .header img {
-            width: 50px;
-        }
-
-        .backbtn {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .backbtn img {
-            width: 30px;
-            filter: invert(1); /* Makes the icon white */
-        }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <button onclick="history.back()" class="backbtn"><img src="images/icons/home_icon.svg" alt="Home Icon">HOME</button>
-        <h1>Academic Calendar</h1>
+    <header>
+        <!--Logo and title goes here-->
+        <h1>
+            <img src="images/W.svg" alt="University of Washington Logo"><br>TACOMA GUIDE
+        </h1>
+        <button onclick="history.back()" class="backbtn"><img src="images/icons/home_icon.svg"
+                alt="Home Icon">HOME</button>
+        <h2>Academic Calendar</h2>
     </header>
-
     <div class="container">
         <h3 class="term-title">Autumn</h3>
         <div class="calendar-summary">
@@ -168,6 +143,10 @@
                         <tr>
                             <td>Veterans Day</td>
                             <td>Nov 11, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Thanksgiving</td>
+                            <td>Nov 28, 2024</td>
                         </tr>
                         <tr>
                             <td>Native American Heritage Day</td>
@@ -218,20 +197,16 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td>Labor Day</td>
-                            <td>Sep 2, 2024</td>
+                            <td>New Years</td>
+                            <td>Jan 1, 2025</td>
                         </tr>
                         <tr>
-                            <td>Veterans Day</td>
-                            <td>Nov 11, 2024</td>
+                            <td>Martin Luther King Jr. Day</td>
+                            <td>Jan 20, 2025</td>
                         </tr>
                         <tr>
-                            <td>Native American Heritage Day</td>
-                            <td>Nov 29, 2024</td>
-                        </tr>
-                        <tr>
-                            <td>Christmas Day</td>
-                            <td>Dec 25, 2024</td>
+                            <td>Presidents' Day</td>
+                            <td>Feb 17, 2025</td>
                         </tr>
                     </tbody>
                 </table>
@@ -246,23 +221,27 @@
                     <tbody>
                         <tr>
                             <td>Instruction Begins</td>
-                            <td>Mar 25, 2024</td>
+                            <td>Mar 31, 2025</td>
                         </tr>
                         <tr>
                             <td>Last Day of Instruction</td>
-                            <td>May 31, 2024</td>
+                            <td>Jun 6, 2025</td>
                         </tr>
                         <tr>
                             <td>Final Examination Week</td>
-                            <td>Jun 1 – 7, 2024</td>
+                            <td>Jun 7 - 13, 2025</td>
                         </tr>
                         <tr>
                             <td>Grades Available on MyUW</td>
-                            <td>Jun 12, 2024</td>
+                            <td>Jun 18, 2025</td>
                         </tr>
                         <tr>
                             <td>Quarter Break</td>
-                            <td>Jun 9 – 16, 2024</td>
+                            <td>Jun 14 - 22, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Commencement</td>
+                            <td>Jun 13, 2025</td>
                         </tr>
                     </tbody>
                 </table>
@@ -274,22 +253,8 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td>Labor Day</td>
-                            <td>Sep 2, 2024</td>
-                        </tr>
-                        <tr>
-                            <td>Veterans Day</td>
-                            <td>Nov 11, 2024</td>
-                        </tr>
-                        <tr>
-                            <td>Native American Heritage Day</td>
-                            <td>Nov 29, 2024</td>
-                        </tr>
-                        <tr>
-                            <td>Christmas Day</td>
-                            <td
-
->Dec 25, 2024</td>
+                            <td>Memorial Day</td>
+                            <td>May 26, 2025</td>
                         </tr>
                     </tbody>
                 </table>
@@ -312,11 +277,11 @@
                         <tr>
                             <td rowspan="3">Full Term</td>
                             <td>Instruction Begins</td>
-                            <td>Jun 17, 2024</td>
+                            <td>Jun 23, 2025</td>
                         </tr>
                         <tr>
                             <td>Last Day of Instruction</td>
-                            <td>Aug 16, 2024</td>
+                            <td>Aug 22, 2025</td>
                         </tr>
                         <tr>
                             <td>Final Examination Week</td>
@@ -325,11 +290,11 @@
                         <tr>
                             <td rowspan="3">A-Term</td>
                             <td>Instruction Begins</td>
-                            <td>Jun 17, 2024</td>
+                            <td>Jun 23, 2025</td>
                         </tr>
                         <tr>
                             <td>Last Day of Instruction</td>
-                            <td>Jul 17, 2024</td>
+                            <td>Jul 23, 2025</td>
                         </tr>
                         <tr>
                             <td>Final Examination Week</td>
@@ -338,11 +303,11 @@
                         <tr>
                             <td rowspan="3">B-Term</td>
                             <td>Instruction Begins</td>
-                            <td>Jul 18, 2024</td>
+                            <td>Jul 24, 2025</td>
                         </tr>
                         <tr>
                             <td>Last Day of Instruction</td>
-                            <td>Aug 16, 2024</td>
+                            <td>Aug 22, 2025</td>
                         </tr>
                         <tr>
                             <td>Final Examination Week</td>
@@ -350,7 +315,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">Grades Available on MyUW</td>
-                            <td>Aug 21, 2024</td>
+                            <td>Aug 27, 2025</td>
                         </tr>
                     </tbody>
                 </table>
@@ -362,20 +327,12 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td>Labor Day</td>
-                            <td>Sep 2, 2024</td>
+                            <td>Juneteenth</td>
+                            <td>Jun 19, 2025</td>
                         </tr>
                         <tr>
-                            <td>Veterans Day</td>
-                            <td>Nov 11, 2024</td>
-                        </tr>
-                        <tr>
-                            <td>Native American Heritage Day</td>
-                            <td>Nov 29, 2024</td>
-                        </tr>
-                        <tr>
-                            <td>Christmas Day</td>
-                            <td>Dec 25, 2024</td>
+                            <td>Independence Day</td>
+                            <td>Jul 4, 2025</td>
                         </tr>
                     </tbody>
                 </table>
@@ -385,4 +342,3 @@
 </body>
 
 </html>
-```
