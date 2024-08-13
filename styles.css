@@ -20,6 +20,22 @@
 	src: url(fonts/EncodeSansCompressed-900-Black.ttf);
 }
 
+header {
+	padding-top: 1px;
+	background-color:#32006e;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #32006e;
+	padding: 10px 0;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
 
 .backbtn {
 	background-color:lightgrey;
@@ -211,6 +227,7 @@ a {
 
 body {
 	margin: 0px;
+	padding-bottom: 80px;
 }
 
 main {
@@ -219,13 +236,13 @@ main {
 
 
 #resources {
-    display: flex;
     justify-content: space-around;
     padding: 20px;
 }
 
 #resources a {
     text-decoration: none;
+	background-color: #FFFFFF;
     /* Additional styling for the links */
 }
 
